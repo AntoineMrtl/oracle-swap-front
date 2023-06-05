@@ -1,0 +1,19 @@
+/* #01010aea */
+body {
+  background: linear-gradient(
+    30deg,
+    #2f053aec 0%,
+    #190624ec 25%,
+    #030007ec 50%,
+    #01010aee 100%
+  );
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

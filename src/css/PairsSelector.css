@@ -1,0 +1,50 @@
+.select-box {
+  position: relative;
+  display: inline-block;
+}
+
+.selected-item:hover {
+  background-color: #2f2a3a;
+}
+
+.selected-item {
+  width: 100px; /* Adjust the width as per your requirements */
+  cursor: pointer;
+  border: 1px solid #3e3a49;
+  border-radius: 4px;
+  padding: 7px 10px;
+  margin-right: 15px; /* Add margin to create space between the text and button */
+  background-color: #19122e;
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent line breaks */
+  margin-top: 15px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: calc(100% + 5px); /* Add a small spacing below the selected item */
+  left: 0;
+  z-index: 999;
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #19122e;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.dropdown-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background-color: #2b2638;
+}

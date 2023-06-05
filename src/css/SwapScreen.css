@@ -1,0 +1,96 @@
+.swap-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 30px;
+  background-color: #171729;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 20px;
+  width: 360px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  outline: 2px solid #fff;
+}
+
+.swap-text {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e6e6e6;
+}
+
+.buy-sell-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-right: 15px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.buy-sell-button.sell {
+  background-color: #f44336;
+}
+
+.top-frame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: -42px;
+  padding-bottom: 20px;
+  border-radius: 20px 20px 0 0;
+  width: 103%;
+}
+
+.top-frame-left {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 8px;
+  align-items: center;
+}
+
+.top-frame-right {
+  display: flex;
+  padding-right: -10px;
+}
+
+.bottom-connect-button:hover {
+  background-color: #e02121;
+}
+
+.bottom-connect-button {
+  padding: 22px 40px;
+  border-radius: 15px;
+  background-color: #1e427c;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
+.bottom-approve-button,
+.bottom-swap-button {
+  flex: 1;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #315fdf;
+  color: #ffffff;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}

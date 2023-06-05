@@ -1,0 +1,34 @@
+/* Style the input boxes */
+
+.input-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #16112c;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Adjust the width as per your preference */
+  padding-left: 10px; /* Add vertical padding */
+  padding-right: 10px; /* Add vertical padding */
+  outline: rgb(19, 9, 43) 2px solid;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none; /* Remove the border */
+  background-color: rgba(197, 24, 24, 0); /* Add a faded background color */
+  size: 4px;
+  font-size: 23px;
+  padding-left: 30px;
+  outline: none; /* Remove the outline */
+  color: #cab7b7ce; /* Set the text color to white when focused */
+}
+
+.input-box input[type="number"]::placeholder {
+  color: rgba(230, 230, 230, 0.363); /* Adjust the placeholder color */
+}
