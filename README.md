@@ -1,10 +1,9 @@
 # Oracle Swap Frontend
-
-## Oracle Swap AMM frontend implementation
+# Oracle Swap AMM frontend implementation
 
 See https://github.com/AntoineMrtl/oracle_swap_back for the contracts and deployment.
 
-### How it works (Oracle Swap backend)
+## How it works (Oracle Swap backend)
 
 The base contract was a fork of : https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/examples/oracle_swap
 
@@ -14,7 +13,7 @@ Users can deposit tokens (both BASE and QUOTE) at a fixed ratio (which will be c
 
 To fix the imbalance issue, there is an incentive to arbitrate between the pool price and the real price : if the pool price is imbalance (the difference with the real price exceeds a certain threshold), arbiters are allows to buy (or sell according to the imbalance side) directly on the contract liquidity pool to bring the pool price closer to the real price. The base oracle-based swap can remain open or not during an imbalance event at the wish of the operator. Finally, fees are taken for each swap to encourage the deposit of liquidity.
 
-### How to use it
+## How to use it
 
 The frontend is divided in three parts to fullfill all the requirments of the dapp : 
 
