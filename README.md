@@ -1,4 +1,3 @@
-# Oracle Swap Frontend
 # Oracle Swap AMM frontend implementation
 
 See https://github.com/AntoineMrtl/oracle_swap_back for the contracts and deployment.
