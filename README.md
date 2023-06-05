@@ -16,7 +16,7 @@ To fix the imbalance issue, there is an incentive to arbitrate between the pool 
 
 The frontend is divided in three parts to fullfill all the requirements of the dapp : 
 
-#### Swap
+### Swap
 
 The swap is the main part of the oracle swap. It allows everyone to swap tokens (only one pair of two tokens per contract), to buy or sell at a fixed price determined by the pyth price feed (external oracle price feed). The swap is based on the liquidity available in the pool and does not perform balancing maneuver on the pool (it simply transfer tokens from the pool to the user and from the user to the pool without further calculation). The swap can be desactivate with a variable check according to the contract operator if the pool is too unbalanced (see 2nd part).
 
