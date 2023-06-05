@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Oracle Swap Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Oracle Swap AMM frontend implementation
 
-## Available Scripts
+See https://github.com/AntoineMrtl/oracle_swap_back for the contracts and deployment.
 
-In the project directory, you can run:
+### How it works (Oracle Swap backend)
 
-### `npm start`
+The base contract was a fork of : https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/examples/oracle_swap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The contract holds a pool of two ERC-20 tokens, the BASE and the QUOTE, and allows users to swap tokens for the pair BASE/QUOTE. For example, the base could be WETH and the quote could be USDC, in which case you can buy WETH for USDC and vice versa. The pool offers to swap between the tokens at the current Pyth exchange rate for BASE/QUOTE, which is computed from the BASE/USD price feed and the QUOTE/USD price feed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users can deposit tokens (both BASE and QUOTE) at a fixed ratio (which will be considered to be close to the token price) to the liquidity pool to allow the swap. As the price is external and do not depend of the contract, the pool can become unbalanced, which can lead to a non optimal efficiency for liquidity providers (e.g. must deposit a 20:1 ratio in the liquidity whereas the price is 2:1, which can lead to a lot of token completly unused and less liquidity deposited)
 
-### `npm test`
+To fix the imbalance issue, there is an incentive to arbitrate between the pool price and the real price : if the pool price is imbalance (the difference with the real price exceeds a certain threshold), arbiters are allows to buy (or sell according to the imbalance side) directly on the contract liquidity pool to bring the pool price closer to the real price. The base oracle-based swap can remain open or not during an imbalance event at the wish of the operator. Finally, fees are taken for each swap to encourage the deposit of liquidity.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How to use it
 
-### `npm run build`
+The frontend is divided in three parts to fullfill all the requirments of the dapp : 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Swap
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The swap is the main part of the oracle swap. It allows everyone to swap tokens (only one pair of two tokens per contract), to buy or sell at a fixed price determined by the pyth price feed (external oracle price feed). The swap is based on the liquidity available in the pool and does not perform balancing maneuver on the pool (it simply transfer tokens from the pool to the user and from the user to the pool without further calculation). The swap can be desactivate with a variable check according to the contract operator if the pool is too unbalanced (see 2nd part).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Arbitrage
 
-### `npm run eject`
+The pool is unbalanced if the virtual price of the pool (ratio of the pool reserves, the "pool price"), is too different from the real price, (10% offset here in the contract). Why does the pool balancing matters ? Because it can leads to an unoptimal liquidity, with for exemple a pool reserves of 10 times more tokenA than tokenB, whereas the real price of tokenA can be 2:1 : the liquidity providers must deposit much more tokenA than necessary and a lot of them will never be used, which lead to less liquidity and more tokens vested in the contract.
+When the pool is unbalanced, the arbitrate function is available and can be accessed by the front by selecting a pair, and by putting the amount of token we want to buy or sell depending of the side of the imbalance. The contract will then buy (or sell) tokens directly on the pool at the pool price instead of using oracle price and will thus slightly rebalance the pool to the oracle price. The swap at oracle price can be desactivate or not during imbalance phase.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Pools
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Finally, users can deposit and remove liquidity using the third part of the frontend. While adding liquidity, they can put the number they want to add to only one of the input boxes, because the other will be calculated by the contract to fit the pool ratio accordingly to the first input (or second). To remove liquidity, they can click on the button up in the corner on the right and set the percentage (integers number between 1 and 100) they want to withdraw. The fees are automatically removed with the liquidity (you get x% of your total fees when you remove x% of your liquidity).
