@@ -13,7 +13,7 @@ export const pairPriceIds = {
 };
 
 export const pairContract = {
-  "BTC / ETH": "0x6AFd864C3C5EAa77c61D56517C03F062940A2dD5",
+  "BTC / ETH": "0x05d53cC46a6b33a3a7dd7855F25F75D60f13479b",
 };
 
 export const pairSymbols = {
@@ -21,11 +21,11 @@ export const pairSymbols = {
 };
 
 export const tokenContracts = {
-  BTC: "0x2f1C050e18c832d6205B86Ae45050eDDFC21a908",
-  ETH: "0x8F2DE90b56d10DDE483cA4744cc55972132CAB50",
+  BTC: "0x57ac342EAfdd7f46E5d61013697791400610fd5B",
+  ETH: "0x542C53Ecb71fA46Ea988aD47E53820D2481DcF09",
 };
 
-export const OracleSwapAddress = "0x6AFd864C3C5EAa77c61D56517C03F062940A2dD5";
+export const OracleSwapAddress = "0x05d53cC46a6b33a3a7dd7855F25F75D60f13479b";
 export const oracleContract = new web3.eth.Contract(
   oracleABI,
   OracleSwapAddress
