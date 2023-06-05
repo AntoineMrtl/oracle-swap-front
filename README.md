@@ -14,7 +14,7 @@ To fix the imbalance issue, there is an incentive to arbitrate between the pool 
 
 ## How to use it
 
-The frontend is divided in three parts to fullfill all the requirments of the dapp : 
+The frontend is divided in three parts to fullfill all the requirements of the dapp : 
 
 #### Swap
 
