@@ -17,7 +17,7 @@ export const ArbitrageScreen = () => {
   const { activePair } = useContext(PairContext);
 
   const [input1, setInput1] = useState("");
-  const [isApproved, setIsApproved] = useState(true);
+  const [isApproved, setIsApproved] = useState(false);
   const [isImbalanced, setIsImbalanced] = useState(null);
 
   useEffect(() => {
