@@ -17,7 +17,7 @@ export const SwapScreen = () => {
 
   const [buying, setBuying] = useState(true);
   const [input1, setInput1] = useState("");
-  const [isApproved, setIsApproved] = useState(true);
+  const [isApproved, setIsApproved] = useState(false);
 
   const handleBuySellToggle = () => {
     setBuying(!buying);
