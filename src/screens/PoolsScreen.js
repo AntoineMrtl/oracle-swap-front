@@ -18,8 +18,8 @@ export const PoolsScreen = () => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
-  const [isApproved1, setIsApproved1] = useState(true);
-  const [isApproved2, setIsApproved2] = useState(true);
+  const [isApproved1, setIsApproved1] = useState(false);
+  const [isApproved2, setIsApproved2] = useState(false);
   const [addingLiquidity, setAddingLiquidity] = useState(true);
 
   const handleInputChange = (e) => {
