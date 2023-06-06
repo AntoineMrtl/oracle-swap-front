@@ -3,14 +3,12 @@
 See https://github.com/AntoineMrtl/oracle_swap_back for the contracts and deployment.
 
 Deployed test site : https://dreamy-paletas-e071e5.netlify.app/
-/!\ ONLY BTC/ETH pair work, the others are just exemples, there aren't contracts deployed for the others pairs. /!\
+***/!\ ONLY BTC/ETH pair work, the others are just exemples, there aren't contracts deployed for the others pairs. /!\***
 
 Deployed addresses on FUJI Testnet :
 
-OracleSwap: 0x05d53cC46a6b33a3a7dd7855F25F75D60f13479b
-MockETH: 0x542C53Ecb71fA46Ea988aD47E53820D2481DcF09
-MockBTC: 0x57ac342EAfdd7f46E5d61013697791400610fd5B
-Pyth: 0xff1a0f4744e8582DF1aE09D5611b887B6a12925C
+**OracleSwap**: 0x05d53cC46a6b33a3a7dd7855F25F75D60f13479b / **MockETH**: 0x542C53Ecb71fA46Ea988aD47E53820D2481DcF09
+**MockBTC**: 0x57ac342EAfdd7f46E5d61013697791400610fd5B / **Pyth**: 0xff1a0f4744e8582DF1aE09D5611b887B6a12925C
 
 ## How it works (Oracle Swap backend)
 
